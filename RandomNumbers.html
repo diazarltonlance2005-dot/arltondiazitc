@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Generating Random Numbers and Storing Them to an Array</h1>
+<br><br>
+<label for ="nnumbers">How many numbers to generate?:</label>
+<input id="nnumbers" name="numbers" type ="number"></input>
+<button id="btngennumbers">Generate the Numbers</button>
+<br>
+<p id="rnumbers"></p>
+<br><br>
+<button id="btnsortnumbers">Sort the Generated Numbers</button>
+<p id="sortednumbers"></p>
+<br><br>
+<button id="btnreversenumbers">Reverse the Generated Numbers</button>
+<p id="reversenumbers"></p>
+
+<script>
+    document.getElementById("btngennumbers").addEventListener("click",()=> {
+       var nnumbers,n,j,rnumbers;
+ 
+       Anumbers=[];
+
+       nnumbers=document.getElementById("nnumbers").value;
+
+       for (j=0, rnumbers="";j<nnumbers;j++){
+
+           n= Math.round((Math.random() * 100) + 1);
+
+           rnumbers+=n+" ";
+           Anumbers.push(n); // Add n to this array Anumbers
+       
+       }
+       document.getElementById("rnumbers").innerHTML=rnumbers;
+        document.getElementById("sortednumbers").innerHTML="";
+         document.getElementById("reversenumbers").innerHTML="";
+    });
+
+    document.getElementById("btnsortnumbers").addEventListener("click",()=> {
+
+        var snumbers,j
+
+        Anumbers.sort(function(a,b){return a-b});
+        snumbers = "";
+
+        for (n of Anumbers)
+           snumbers+=n+" ";
+
+        document.getElementById("sortednumbers").innerHTML=snumbers;
+    });
+
+    document.getElementById("btnreversenumbers").addEventListener("click",()=> {
+
+        var snumbers,j
+
+        Anumbers.reverse();
+        snumbers = "";
+
+        for (n of Anumbers)
+           snumbers+=n+" ";
+
+        document.getElementById("reversenumbers").innerHTML=snumbers;
+    });
+    
+var Anumbers=[];
+</script>
+
+</body>
+</html>
