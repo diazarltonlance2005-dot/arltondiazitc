@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Grade Computation</h1>
+<br><br>
+<label for="score">Type the score:</label>
+<input id="score" type="number">
+<label for="items">Type the items:</label>
+<input id="items" type="number">
+<label for="base">Type the base of Computation:</label>
+<input id="base" type="number">
+<button id="computegrade">Compuation Grade</button>
+<br><br>
+<label for="grade">Grade:</label>
+<input id="grade" type="number">
+<label for="lettergrade">Equivalent Grade:</label>
+<input id="lettergrade" type="text">
+<br><br>
+<h1 id="gradecomment"></h1>
+
+<br><br>
+
+ <a href="index.html">Back to Home Page</a>
+<script>
+
+    //document.getElementById("computegrade").addEventListener("click",
+    //function()
+    document.getElementById("computegrade").addEventListener("click",()=>
+    {
+        var score, items, base, g, lg;
+
+        score = document.getElementById("score").value * 1;
+        items = document.getElementById("items").value * 1;
+        base = document.getElementById("base").value * 1;
+
+        g = Math.round(base + (score/items)*(100-base));
+        document.getElementById("grade").value = g;
+
+        if (g<72)
+            lg = "F"
+        else if (g<=75)
+            lg = "D"
+        else if (g<=79)
+            lg = "C"
+        else if (g<=83)
+            lg = "C+"
+        else if (g<=87)
+            lg = "B"
+        else if (g<=91)
+            lg = "B+"
+        else
+            lg = "A";
+
+        document.getElementById("lettergrade").value = lg;
+
+        switch(lg)
+        {
+            case 'F':gradecomment="a Failing Grade";
+                    break;
+            case 'D':gradecomment="a Passing Grade";
+                    break;
+            case 'C':
+            case 'C+':gradecomment="a Passing Grade";
+                    break;
+            case 'B':gradecomment="an Good Grade";
+                    break;
+            case 'B+':gradecomment="an Very Good Grade";
+                    break;
+            default:gradecomment="an Excellent Grade";
+
+        }
+
+    document.getElementById("gradecomment").innerHTML = 
+          'The grade is '+gradecomment;
+
+    });
+</script>
+</body>
+</html>
