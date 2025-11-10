@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>ADD 2 numbers</h1>
+    <br><br>
+
+    <label for="n1">Type the 1st Number:</label> 
+    <input id="n1" type="number"> 
+    <label for="n2">Type the 2nd Number:</label> 
+    <input id="n2" type="number">
+    <button id="computesum">Compute Sum</button>
+    <button id="clearvalues">Clear values</button>
+    <br>
+    <label for="sum">The sum is::</label> 
+    <input id="sum" type="number" readonly>
+
+    <br><br>
+
+    <a href="index.html">Back to Home Page</a>
+    <script>
+
+    document.getElementById("clearvalues").addEventListener("click",
+       function ()
+       {
+           document.getElementById("n1").value ="";
+           document.getElementById("n2").value ='';
+           document.getElementById("sum").value ='';
+       }
+    );
+    document.getElementById("computesum").addEventListener("click",
+       function ()
+       {  var x1, x2, x3;
+
+        x1 = document.getElementById("n1").value*1;
+        x2 = document.getElementById("n2").value*1;
+
+        x3 = x1 + x2;
+        document.getElementById("sum").value = x3;
+       });
+    </script>
+</body>
+</html>
